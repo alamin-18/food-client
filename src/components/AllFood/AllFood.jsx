@@ -9,7 +9,7 @@ const AllFood = ({food}) => {
                 <figure><img className='h-44 w-full' src={picture} alt="" /></figure>
                 <div className="card-body">
                     <h2 className="card-title">{name}</h2>
-                    <p>{price}</p>
+                    <p className='text-xl font-semibold'>Price: $ {price}</p>
                     <p>{description.slice(1,100) + "..."}</p>
                     <div className="card-actions justify-end">
                         <Link to={`../foods/${_id}`}><button className="btn btn-primary">Details</button></Link>
