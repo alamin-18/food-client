@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const Food = ({food}) => {
+const AllFood = ({food}) => {
     const {name,picture,description,price,_id} = food
     return (
         <div>
@@ -12,7 +12,7 @@ const Food = ({food}) => {
                     <p>{price}</p>
                     <p>{description.slice(1,100) + "..."}</p>
                     <div className="card-actions justify-end">
-                        <Link to={`foods/${_id}`}><button className="btn btn-primary">Details</button></Link>
+                        <Link to={`../foods/${_id}`}><button className="btn btn-primary">Details</button></Link>
                     </div>
                 </div>
             </div>
@@ -20,4 +20,4 @@ const Food = ({food}) => {
     );
 };
 
-export default Food;
+export default AllFood;

@@ -1,6 +1,5 @@
 [
   {
-    "_id": "6369366fd21c4c9438c3f717",
     "picture": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80",
     "name": "Palak Paneer Recipe",
     "price":"20",
@@ -8,7 +7,6 @@
     "description": "Cupidatat qui culpa nulla minim aliquip nulla aliquip. Dolor pariatur occaecat velit nulla velit sint nulla Lorem labore velit aliquip ex. Deserunt laborum consequat veniam mollit proident cillum proident ullamco duis fugiat consectetur. Aliqua aliquip eu ullamco commodo reprehenderit incididunt cupidatat laboris laborum consequat aliquip amet.\r\n"
   },
   {
-    "_id": "6369366f5901a13959149a57",
     "picture": "https://www.ruchiskitchen.com/wp-content/uploads/2020/12/Paneer-butter-masala-recipe-3-500x500.jpg",
     "name": "Paneer Butter Masala Recipe",
     "price": "15",
@@ -16,7 +14,6 @@
     "description": "Exercitation pariatur cillum ad consectetur ipsum enim voluptate id irure duis incididunt. Qui adipisicing fugiat et ut labore sit nisi do. Esse exercitation deserunt culpa non. Consectetur non reprehenderit ipsum sint occaecat dolor mollit velit.\r\n"
   },
   {
-    "_id": "6369366f113e229e67f9d595",
     "picture": "https://www.indianhealthyrecipes.com/wp-content/uploads/2021/05/sambar.jpg",
     "name": "Sambar Recipe",
     "price":"17",
@@ -24,7 +21,6 @@
     "description": "Fugiat irure ad sint excepteur. Voluptate incididunt ad et qui elit duis dolor incididunt incididunt sint ut voluptate adipisicing. Aliquip do duis duis ea fugiat. Esse aliqua quis excepteur cillum labore.\r\n"
   },
   {
-    "_id": "6369366f72031b362104687b",
     "picture": "https://static.toiimg.com/thumb/53096628.cms?width=1200&height=900",
     "name": "Biryani",
     "price":"19",
@@ -32,7 +28,6 @@
     "description": "Eiusmod dolore aute dolore reprehenderit amet ad nisi dolore cillum id aliquip ea amet et. Aliquip est qui est aliqua pariatur consectetur proident aute velit commodo officia commodo. Qui officia irure id labore. Dolore excepteur nulla laboris exercitation amet amet culpa sit quis aute mollit deserunt incididunt esse.\r\n"
   },
   {
-    "_id": "6369366f6b0a3e2f319211ab",
     "picture": "https://ohthatsgood.com/wp-content/uploads/2022/08/Chicken-Lollipop-1200x1200-1.jpg",
     "name": "Chicken Lollipop",
     "price":"25",
@@ -40,7 +35,6 @@
     "description": "Fugiat reprehenderit Lorem esse culpa. Non Lorem sit excepteur sint labore et amet ut occaecat consectetur veniam in cillum qui. Esse officia dolore consequat id qui aute sunt consequat sunt tempor. Et reprehenderit mollit id sunt tempor quis laboris velit sunt nulla laboris aliquip. Est dolor officia veniam fugiat nulla irure.\r\n"
   },
   {
-    "_id": "6369366fce360aa3ea696f0e",
     "picture": "https://www.cubesnjuliennes.com/wp-content/uploads/2021/03/Best-Mutton-Biryani-Recipe.jpg",
     "name": "Mutton Biryani",
     "price":"35",

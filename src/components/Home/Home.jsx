@@ -5,10 +5,12 @@ import Food from '../Food/Food';
 const Home = () => {
     const [foods,setfoods] =useState([])
     useEffect(()=>{
-        fetch("food.json")
+        fetch("http://localhost:5000/foods")
         .then(res => res.json())
         .then(data => setfoods(data))
     },[])
+    const limitData = foods.slice(1,4)
+    console.log(limitData);
     return (
         <div>
             <div className="hero min-h-screen" style={{ backgroundImage: `url("https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80")` }}>
@@ -21,12 +23,14 @@ const Home = () => {
                     </div>
                 </div>
             </div>
-            <div className='grid lg:grid-cols-3 gap-8 w-3/4 mx-auto'>
+            <div className='grid lg:grid-cols-3 gap-8 w-3/4 mx-auto my-5'>
                 {
-                    foods.map(food =><Food key={food._id} food={food}></Food>)
+                    limitData.map(food =><Food key={food._id} food={food}></Food>)
                 }
             </div>
-            <Link to='foods'><button className='btn btn-outline btn-primary w-full'>See All Item</button></Link>
+            <div className='w-3/4 mx-auto'>
+            <Link to='foods' ><button className='btn btn-outline btn-primary w-full'>See All Item</button></Link>
+            </div>
         </div>
     );
 };
