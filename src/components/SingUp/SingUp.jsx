@@ -1,16 +1,27 @@
-import React from 'react';
+import React,{ useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContexts } from '../../Contexts/AuthProvider/AuthProvider';
 
 const SingUp = () => {
-    
+    const {singIn} = useContext(AuthContexts)
 
     const handleSubmit = event =>{
         event.preventDefault()
         const form = event.target
         const name = form.name.value
-        const password = form.password.value
         const email = form.email.value
-        console.log(name,password,email)
+        const password = form.password.value
+        // console.log(name,password,email)
+        singIn(email,password)
+        .then(result =>{
+           const user = result.user
+            console.log(user)
+        })
+        .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            // ..
+          });
     }
     return (
         <div>
