@@ -1,10 +1,11 @@
+import { GoogleAuthProvider } from 'firebase/auth';
 import React,{ useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContexts } from '../../Contexts/AuthProvider/AuthProvider';
 
 const SingUp = () => {
-    const {singIn} = useContext(AuthContexts)
-
+    const {singIn,googleLogin} = useContext(AuthContexts)
+    const provider = new GoogleAuthProvider()
     const handleSubmit = event =>{
         event.preventDefault()
         const form = event.target
@@ -12,6 +13,7 @@ const SingUp = () => {
         const email = form.email.value
         const password = form.password.value
         // console.log(name,password,email)
+        // signin email and password
         singIn(email,password)
         .then(result =>{
            const user = result.user
@@ -22,6 +24,19 @@ const SingUp = () => {
             const errorMessage = error.message;
             // ..
           });
+    }
+    // sign in google
+    const handleGoogle = ()=>{
+         googleLogin(provider)
+         .then(result =>{
+            const user = result.user
+             console.log(user)
+         })
+         .catch((error) => {
+             const errorCode = error.code;
+             const errorMessage = error.message;
+             // ..
+           });
     }
     return (
         <div>
@@ -62,7 +77,7 @@ const SingUp = () => {
                             </form>
                         </div>
                             <div className="form-control mt-6">
-                                <button className="btn btn-outline btn-primary">Google</button>
+                                <button onClick={handleGoogle} className="btn btn-outline btn-primary">Google</button>
                             </div>
                     </div>
                 </div>
