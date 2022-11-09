@@ -1,8 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContexts } from '../../Contexts/AuthProvider/AuthProvider';
 import Food from '../Food/Food';
 
 const Home = () => {
+    const {User} = useContext(AuthContexts)
     const [foods,setfoods] =useState([])
     useEffect(()=>{
         fetch("http://localhost:5000/foods")
