@@ -1,6 +1,7 @@
 import React from 'react';
-import { PhotoView } from 'react-photo-view';
+import { PhotoProvider, PhotoView } from 'react-photo-view';
 import { Link } from 'react-router-dom';
+import 'react-photo-view/dist/react-photo-view.css';
 
 const AllFood = ({ food }) => {
     const { name, picture, description, price, _id } = food
@@ -8,9 +9,12 @@ const AllFood = ({ food }) => {
         <div>
             <div className="card w-96 bg-base-100 shadow-xl ">
                 <figure>
-                    <img className='h-44 w-full' src={picture} alt="" />
-                
-                    </figure>
+                    <PhotoProvider>
+                        <PhotoView src={picture}>
+                        <img className='h-44 w-full' src={picture} alt="" />
+                        </PhotoView>
+                    </PhotoProvider>
+                </figure>
                 <div className="card-body">
                     <h2 className="card-title">{name}</h2>
                     <p className='text-xl font-semibold'>Price: $ {price}</p>

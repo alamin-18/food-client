@@ -27,7 +27,7 @@ const SingleFood = () => {
             email,
             review
         }
-        fetch("http://localhost:5000/review",{
+        fetch("https://food-server-five.vercel.app/review",{
             method: 'POST',
             headers:{
                 'content-type':'application/json'
@@ -50,7 +50,9 @@ const SingleFood = () => {
     return (
         <div>
             <div className="card w-2/4 mx-auto my-4 bg-base-100 shadow-xl ">
-                <figure><img src={picture} alt="" /></figure>
+                <figure><img src={picture} alt="" />
+                
+                </figure>
                 <div className="card-body">
                     <h2 className="card-title">{name}</h2>
                     <p className='text-xl font-semibold'>Price: $ {price}</p>

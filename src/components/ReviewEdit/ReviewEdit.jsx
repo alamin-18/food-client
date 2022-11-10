@@ -14,7 +14,7 @@ const ReviewEdit = () => {
         const form = event.target
         // const review = form.review.value
         
-        fetch(`http://localhost:5000/review/${review._id}`, {
+        fetch(`https://food-server-five.vercel.app/review/${review._id}`, {
             method: 'PATCH',
             headers: {
                 'content-type': 'application/json',

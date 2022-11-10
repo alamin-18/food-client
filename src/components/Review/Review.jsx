@@ -16,7 +16,7 @@ const Review = () => {
         console.log(id);
         const proceed = window.confirm('Are you sure, you want to remove Review');
         if (proceed) {
-            fetch(`http://localhost:5000/review/${id}`, {
+            fetch(`https://food-server-five.vercel.app/review/${id}`, {
                 method: 'DELETE',
                 headers: {
                     // authorization: `Bearer ${localStorage.getItem('genius-token')}`
@@ -35,7 +35,7 @@ const Review = () => {
     }
 
     useEffect(() => {
-        fetch("http://localhost:5000/review")
+        fetch("https://food-server-five.vercel.app/review")
             .then(res => res.json())
             .then(data => {
                 setReview(data.reverse())

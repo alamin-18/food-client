@@ -11,6 +11,7 @@ const Login = () => {
     const navigate = useNavigate();
 
     const from = location.state?.from?.pathname || '/';
+    
     const provider = new GoogleAuthProvider()
     const handleLogin = event =>{
         event.preventDefault()

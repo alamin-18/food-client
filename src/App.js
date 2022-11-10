@@ -22,15 +22,15 @@ function App() {
       {path:'/foods',element:<Foods></Foods>},
       {path:'/blog',element:<Blog></Blog>},
       {path:'/foods/:id',
-      loader: ({params}) => fetch(`http://localhost:5000/foods/${params.id}`),
-      element:<SingleFood></SingleFood>},
+      loader: ({params}) => fetch(`https://food-server-five.vercel.app/foods/${params.id}`),
+      element:<PrivetRoute><SingleFood></SingleFood></PrivetRoute>},
       {path:'/singup',element:<SingUp></SingUp>},
       {path:'/login',element:<Login></Login>},
       {path:'/review',element:<Review></Review>},
       {path:'/reviewedit/:id',
-      loader: ({params}) => fetch(`http://localhost:5000/review/${params.id}`),
+      loader: ({params}) => fetch(`https://food-server-five.vercel.app/review/${params.id}`),
       element:<ReviewEdit></ReviewEdit>},
-      {path:'/addservice',element:<AddService></AddService>}
+      {path:'/addservice',element:<PrivetRoute><AddService></AddService></PrivetRoute>}
     ]}
   ])
   return (
