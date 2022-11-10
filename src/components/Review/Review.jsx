@@ -1,63 +1,45 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import ReviewData from '../ReviewData/ReviewData';
+
 
 const Review = () => {
-    return (
-        <div>
-            <div className="overflow-x-auto w-2/4 mx-auto my-10">
-                <table className="table w-full">
-                  
-                    <thead>
-                        <tr>
-                            <th>
-                                <label>
-                                    <input type="checkbox" className="checkbox" />
-                                </label>
-                            </th>
-                            <th>Name</th>
-                            <th>Job</th>
-                            <th>Favorite Color</th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <th>
-                                <label>
-                                    <input type="checkbox" className="checkbox" />
-                                </label>
-                            </th>
-                            <td>
-                                <div className="flex items-center space-x-3">
-                                    <div className="avatar">
-                                        <div className="mask mask-squircle w-12 h-12">
-                                            <img src="/tailwind-css-component-profile-2@56w.png" alt="Avatar Tailwind CSS Component" />
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <div className="font-bold">Hart Hagerty</div>
-                                        <div className="text-sm opacity-50">United States</div>
-                                    </div>
-                                </div>
-                            </td>
-                            <td>
-                                Zemlak, Daniel and Leannon
-                                <br />
-                                <span className="badge badge-ghost badge-sm">Desktop Support Technician</span>
-                            </td>
-                            <td>Purple</td>
-                            <th>
-                                <button className="btn btn-ghost btn-xs">details</button>
-                            </th>
-                        </tr>
-                       
-                    </tbody>
-                   
-                   
+    const [review, setReview] = useState([])
 
-                </table>
-            </div>
+    useEffect(() => {
+        fetch("http://localhost:5000/review")
+            .then(res => res.json())
+            .then(data => {
+                setReview(data.reverse())
+            })
+    }, [])
+    const handleUpdate = event => {
+        
+    }
+    console.log(review);
+    return (
+        <div className=" w-2/4 mx-auto my-10">
+
+            <table className="table">
+                
+                <thead className='flex justify-around bg-base-200'>
+                    <th>Edit</th>
+                    <th>Name</th>
+                    <th>Product</th>
+                    <th>Review</th>
+                    <th>Delete</th>
+                </thead>
+                <tbody>
+                    {
+                        review?.map(re => <ReviewData key={re._id} handleUpdate={handleUpdate} re={re}></ReviewData>)
+                    }
+                </tbody>
+               
+               
+
+            </table>
         </div>
     );
 };
 
 export default Review;
+

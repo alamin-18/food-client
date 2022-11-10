@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { toast } from 'react-hot-toast';
 import { useLoaderData } from 'react-router-dom';
 import { AuthContexts } from '../../Contexts/AuthProvider/AuthProvider';
+import Review from '../Review/Review';
 
 const SingleFood = () => {
     const food = useLoaderData()
@@ -69,6 +70,9 @@ const SingleFood = () => {
                     <br />
                     <input className='btn btn-primary' type="submit" value="Submit" />
                 </form>
+            </div>
+            <div>
+                <Review></Review>
             </div>
 
         </div>
