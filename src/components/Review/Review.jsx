@@ -1,9 +1,36 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState,useContext } from 'react';
+import { AuthContexts } from '../../Contexts/AuthProvider/AuthProvider';
 import ReviewData from '../ReviewData/ReviewData';
+import { toast } from 'react-hot-toast';
 
 
 const Review = () => {
+    const {user} = useContext(AuthContexts)
     const [review, setReview] = useState([])
+    const [res,setRef] = useState(false)
+
+    //delete review
+    const handleDelete = id => {
+        console.log(id);
+        const proceed = window.confirm('Are you sure, you want to remove Review');
+        if (proceed) {
+            fetch(`http://localhost:5000/review/${id}`, {
+                method: 'DELETE',
+                headers: {
+                    // authorization: `Bearer ${localStorage.getItem('genius-token')}`
+                }
+            })
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data)
+                    if (data.msg) {
+                        setRef(true)
+                        toast.success('deleted successfully');  
+                    }
+                })
+                .catch(err => console.log(err))
+        }
+    }
 
     useEffect(() => {
         fetch("http://localhost:5000/review")
@@ -11,11 +38,9 @@ const Review = () => {
             .then(data => {
                 setReview(data.reverse())
             })
-    }, [])
-    const handleUpdate = event => {
-        
-    }
-    console.log(review);
+    }, [res])
+    const allReview = review.filter(rev =>rev.email === user?.email)
+    // console.log(review);
     return (
         <div className=" w-2/4 mx-auto my-10">
 
@@ -30,7 +55,7 @@ const Review = () => {
                 </thead>
                 <tbody>
                     {
-                        review?.map(re => <ReviewData key={re._id} handleUpdate={handleUpdate} re={re}></ReviewData>)
+                        allReview?.map(re => <ReviewData handleDelete={handleDelete} key={re._id} re={re}></ReviewData>)
                     }
                 </tbody>
                

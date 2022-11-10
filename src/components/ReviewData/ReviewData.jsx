@@ -4,29 +4,10 @@ import { AuthContexts } from '../../Contexts/AuthProvider/AuthProvider';
 import { toast } from 'react-hot-toast';
 
 
-const ReviewData = ({ re, }) => {
+const ReviewData = ({ re,handleDelete }) => {
     const { user } = useContext(AuthContexts)
     const { serviceName, review, price, _id } = re
-    const handleDelete = id => {
-        console.log(id);
-        const proceed = window.confirm('Are you sure, you want to remove Review');
-        if (proceed) {
-            fetch(`http://localhost:5000/review/${id}`, {
-                method: 'DELETE',
-                headers: {
-                    // authorization: `Bearer ${localStorage.getItem('genius-token')}`
-                }
-            })
-                .then(res => res.json())
-                .then(data => {
-                    console.log(data)
-                    if (data.msg) {
-                        toast.success('deleted successfully');  
-                    }
-                })
-                .catch(err => console.log(err))
-        }
-    }
+    
     return (
         <div>
             <tr>

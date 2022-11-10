@@ -19,11 +19,12 @@ const Header = () => {
     // menu items 
     const menuItems = <>
         <li className='font-semibold'><Link to='/'>Home</Link></li>
-        <li className='font-semibold'><Link to='/'>Blog</Link></li>
+        <li className='font-semibold'><Link to='/blog'>Blog</Link></li>
         {
             user?.email ?
             <>
                     <li className='font-semibold'><Link to='/review'>My Review</Link></li>
+                    <li className='font-semibold'><Link to='/addservice'>Add Service</Link></li>
                     <li className='font-semibold'>
                         <button onClick={handleLogOut} className='btn-ghost'>Sign Out</button>
                     </li>
