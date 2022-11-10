@@ -1,43 +1,48 @@
 import React, { useContext } from 'react';
+import { toast } from 'react-hot-toast';
 import { useLoaderData } from 'react-router-dom';
 import { AuthContexts } from '../../Contexts/AuthProvider/AuthProvider';
 
 const SingleFood = () => {
     const food = useLoaderData()
     const { user } = useContext(AuthContexts)
-    const { name, picture, description, price, } = food;
+    const { name, picture, description, price,_id } = food;
 
     const handleReview = event => {
         event.preventDefault()
         const form = event.target
-        const name = form.name.value
+        const customarName = form.name.value
         const email = form.email.value
         const review = form.review.value
-        console.log(name, email, review)
+        // console.log(name, email, review)
 
-        const allReview = {
-            name,
+        const message = {
+            serviceId: _id,
+            serviceName: name,
+            price,
+            customarName,
             email,
             review
         }
-
-        fetch('http://localhost:5000/review', {
+        fetch("http://localhost:5000/review",{
             method: 'POST',
-            headers: {
-                'content-type': 'application/json',
+            headers:{
+                'content-type':'application/json'
             },
-            body: JSON.stringify(allReview)
+            body: JSON.stringify(message)
         })
-        .then(res => res.json())
-        .then(data => {
-                console.log(data)
-                if (data.acknowledged) {
-                    alert('Review added successfully')
-                    form.reset();
-                }
-            })
-        .catch(er => console.error(er));
+        .then(res=>res.json())
+        .then(data =>{
+            console.log(data);
+            if(data.acknowledged){
+                toast.success("Review Added Succesfully")
+                form.reset();
+            }
+        })
+        .catch(err => console.error(err))
+
     }
+       
 
     return (
         <div>

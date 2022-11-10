@@ -8,6 +8,8 @@ import Foods from './components/Foods/Foods';
 import SingleFood from './components/singleFoods/SingleFood';
 import SingUp from './components/SingUp/SingUp';
 import Login from './components/Login/Login';
+import { Toaster } from 'react-hot-toast';
+import Review from './components/Review/Review';
 
 function App() {
   const router = createBrowserRouter([
@@ -18,12 +20,14 @@ function App() {
       loader: ({params}) => fetch(`http://localhost:5000/foods/${params.id}`),
       element:<SingleFood></SingleFood>},
       {path:'/singup',element:<SingUp></SingUp>},
-      {path:'/login',element:<Login></Login>}
+      {path:'/login',element:<Login></Login>},
+      {path:'/review',element:<Review></Review>}
     ]}
   ])
   return (
     <div >
       <RouterProvider router={router}></RouterProvider>
+      <Toaster></Toaster>
     </div>
   );
 }
