@@ -19,7 +19,7 @@ const Review = () => {
             fetch(`https://food-server-five.vercel.app/review/${id}`, {
                 method: 'DELETE',
                 headers: {
-                    // authorization: `Bearer ${localStorage.getItem('genius-token')}`
+                    
                 }
             })
                 .then(res => res.json())
