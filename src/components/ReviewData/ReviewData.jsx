@@ -2,9 +2,11 @@ import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContexts } from '../../Contexts/AuthProvider/AuthProvider';
 import { toast } from 'react-hot-toast';
+import useTitle from './../../hooks/hooks';
 
 
 const ReviewData = ({ re,handleDelete }) => {
+    useTitle("Review")
     const { user } = useContext(AuthContexts)
     const { serviceName, review, price, _id } = re
     

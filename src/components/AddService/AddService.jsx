@@ -1,7 +1,9 @@
 import React from 'react';
 import { toast } from 'react-hot-toast';
+import useTitle from './../../hooks/hooks';
 
 const AddService = () => {
+    useTitle("Add Service")
     const handleservice = event => {
         {/* name, picture, description, price, _id  */ }
         event.preventDefault()

@@ -2,8 +2,10 @@ import { GoogleAuthProvider } from 'firebase/auth';
 import React,{ useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContexts } from '../../Contexts/AuthProvider/AuthProvider';
+import useTitle from './../../hooks/hooks';
 
 const SingUp = () => {
+    useTitle("SignUp")
     const {singIn,googleLogin} = useContext(AuthContexts)
     const provider = new GoogleAuthProvider()
     const handleSubmit = event =>{

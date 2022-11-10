@@ -1,8 +1,10 @@
 import React, { useContext,useState } from 'react';
 import { AuthContexts } from '../../Contexts/AuthProvider/AuthProvider';
 import { useLoaderData } from 'react-router-dom';
+import useTitle from './../../hooks/hooks';
 
 const ReviewEdit = () => {
+    useTitle("Edit Review")
     const { user } = useContext(AuthContexts)
     const review = useLoaderData()
     const [editReview,setEditReview] =useState(review.review)

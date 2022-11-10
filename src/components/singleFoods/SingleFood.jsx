@@ -3,8 +3,10 @@ import { toast } from 'react-hot-toast';
 import { useLoaderData } from 'react-router-dom';
 import { AuthContexts } from '../../Contexts/AuthProvider/AuthProvider';
 import Review from '../Review/Review';
+import useTitle from './../../hooks/hooks';
 
 const SingleFood = () => {
+    useTitle("Songle Item")
     const food = useLoaderData()
     const { user } = useContext(AuthContexts)
     const { name, picture, description, price,_id } = food;
